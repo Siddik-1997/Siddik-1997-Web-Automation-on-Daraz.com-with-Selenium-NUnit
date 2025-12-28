@@ -10,10 +10,9 @@ namespace Automation_Task.utils
 {
     public class Utils
     {
-        public static void WaitForElement(IWebDriver driver, By locator, int timeInSeconds)
+        public static void WaitForElement(IWebDriver driver, int timeInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeInSeconds));
-            wait.Until(drv => drv.FindElement(locator).Displayed);
         }
 
     }

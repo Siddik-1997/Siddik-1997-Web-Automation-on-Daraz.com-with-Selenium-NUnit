@@ -1,4 +1,5 @@
-﻿using Automation_Task.pages;
+﻿using Allure.NUnit;
+using Automation_Task.pages;
 using Automation_Task.utils;
 using OpenQA.Selenium;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Automation_Task.runner
 {
+    [AllureNUnit]
     public class TestRunner:SetupPage
     {
         HomePage homePage;

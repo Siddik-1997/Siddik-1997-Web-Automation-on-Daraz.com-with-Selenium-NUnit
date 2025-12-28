@@ -25,22 +25,18 @@ namespace Automation_Task.pages
         public void selectProductCategory()
         {
             categoryOne.Click();
-            Thread.Sleep(1000);
             selectFirstItem.Click();
-            Thread.Sleep(1000);
             btnAddtoCart.Click();
             Thread.Sleep(2000);
+            btnCross.Click();
 
         }
 
         public void selectDifferentProductCategory()
         {
             driver.Navigate().GoToUrl("https://www.daraz.com.bd/#hp-categories");
-            //Thread.Sleep(1000);
             categoryTwo.Click();
-            //Thread.Sleep(1000);
             selectFirstItem.Click();
-            //Thread.Sleep(1000);
             btnAddtoCart.Click();
             Thread.Sleep(1000);
             btnCross.Click();
