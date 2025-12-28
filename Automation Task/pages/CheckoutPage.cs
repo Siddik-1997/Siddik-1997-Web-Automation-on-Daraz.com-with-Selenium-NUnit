@@ -13,6 +13,7 @@ namespace Automation_Task.pages
         IWebElement btnSelect => driver.FindElement(By.XPath("//div[@id='listHeader_H']//label[contains(@class,'list-header-checkbox')]"));
         IWebElement btnCheckout => driver.FindElement(By.XPath("//button[@class='next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button']"));
         IWebElement btnPay => driver.FindElement(By.XPath("//div[text()='Proceed to Pay']"));
+        IWebElement mainTitle => driver.FindElement(By.XPath("//h2[@class='main-title']"));
         
         IWebDriver driver;
         public CheckoutPage(IWebDriver driver)
@@ -28,8 +29,20 @@ namespace Automation_Task.pages
             Thread.Sleep(1000);
             btnCheckout.Click();
             Thread.Sleep(1000);
+        }
+
+        public void proccedtoPay()
+        {
             btnPay.Click();
             Thread.Sleep(5000);
+        }
+
+        public void assertCheckoutPage()
+        {
+            string actualTitle = mainTitle.Text.Trim();
+            string expectedTitle = "Select Payment Method";
+            Assert.AreEqual(expectedTitle, actualTitle);
+             
         }
     }
 }

@@ -2,7 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
 
-namespace Automation_Task.pages
+namespace Automation_Task.utils
 {
     public class SetupPage
     {

@@ -13,6 +13,7 @@ namespace Automation_Task.pages
         IWebElement inputEmail => driver.FindElement(By.XPath("//input[@placeholder='Please enter your Phone or Email']"));
         IWebElement inputPassword => driver.FindElement(By.XPath("//input[@placeholder='Please enter your password']"));
         IWebElement btnSubmit => driver.FindElement(By.XPath("//button[@type='button']"));
+        IWebElement profileId => driver.FindElement(By.XPath("//span[@id='myAccountTrigger']"));
         IWebDriver driver;
 
         public LoginPage(IWebDriver driver)
@@ -22,20 +23,18 @@ namespace Automation_Task.pages
 
         public void doLogin(string email, String password)
         {
-            loginMenu.Click();
-            Thread.Sleep(1000);
+            loginMenu.Click();      
             inputEmail.SendKeys(email);
-            Thread.Sleep(1000);
             inputPassword.SendKeys(password);
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             btnSubmit.Click();
         }
 
         public void loginAssertion()
         {   
-            //String getCurrentUrl = driver.Url;
-
-
+            string actualProfileText = profileId.Text.Trim();
+            string expectedProfileText = "DIPU SIDDIK'S ACCOUNT";
+            Assert.AreEqual(expectedProfileText, actualProfileText);     
         }
     }
 }
