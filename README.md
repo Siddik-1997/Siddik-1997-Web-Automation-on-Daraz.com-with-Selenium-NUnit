@@ -49,7 +49,7 @@ Website: https://www.daraz.com.bd/
 - Verify that the language is updated successfully
 - Change site language from Bangla → English
 - Verify that the language is updated successfully
-- Register a new user account
+- Register a new user account (Before Captcha & OTP Screen)
 - Log in using the registered account
 - Select a product category
 - Select a product from that category and add to cart
@@ -71,3 +71,13 @@ Website: https://www.daraz.com.bd/
 - Verify cart contains selected products
 - Verify user can proceed to checkout
 - Verify user can proceed to buy/place order
+
+# ScreenShot
+<img width="1916" height="867" alt="image" src="https://github.com/user-attachments/assets/6b5aea49-8c2b-4507-abd5-a546d1fd8915" />
+
+<img width="1917" height="875" alt="image" src="https://github.com/user-attachments/assets/291730b5-fcae-4a3e-a3a9-b8a6fc8b40cf" />
+
+# Video Attachment
+**Test Execution Report:**  
+[View Report on Google Drive](https://drive.google.com/file/d/1oIlln6XukI7E1gQoIeXSkZbN7WFhAngh/view?usp=sharing)
+
