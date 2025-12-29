@@ -361,3 +361,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Allure
+allure-results/
+allure-report/
+
+# Test credentials
+testData/loginCredentials.json

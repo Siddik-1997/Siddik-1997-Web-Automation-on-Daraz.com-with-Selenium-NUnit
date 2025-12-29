@@ -21,7 +21,7 @@ namespace Automation_Task.pages
         public void languageMenuClicked()
         {
             languageMenu.Click();
-            Thread.Sleep(1000);
+            utils.Utils.WaitForElement(driver, langugageMenuText, 30);
             string getLanText = langugageMenuText.Text;
             if (!getLanText.Trim().Equals("change language", StringComparison.OrdinalIgnoreCase))
             {
@@ -32,14 +32,13 @@ namespace Automation_Task.pages
                 selectEnglish.Click();
             }
 
-            Thread.Sleep(1000);
+            utils.Utils.WaitForElement(driver, titleText, 30);
         }
 
         public void assertSiteLanguage(string expectedTitleText)
         {
             string actualTitleText = titleText.Text.Trim();
-            Assert.AreEqual(expectedTitleText, actualTitleText,
-                "Site language title does not match!");
+            Assert.AreEqual(expectedTitleText, actualTitleText);
         }
     }
 }

@@ -23,18 +23,21 @@ namespace Automation_Task.pages
 
         public void doLogin(string email, String password)
         {
-            loginMenu.Click();      
+            loginMenu.Click();
+            utils.Utils.WaitForElement(driver, inputEmail, 10);
             inputEmail.SendKeys(email);
+            utils.Utils.WaitForElement(driver, inputPassword, 10);
             inputPassword.SendKeys(password);
-            Thread.Sleep(1000);
+            utils.Utils.WaitForElement(driver, btnSubmit, 10);
             btnSubmit.Click();
+            Thread.Sleep(1000);
         }
 
         public void loginAssertion()
-        {   
+        {
             string actualProfileText = profileId.Text.Trim();
             string expectedProfileText = "DIPU SIDDIK'S ACCOUNT";
-            Assert.AreEqual(expectedProfileText, actualProfileText);     
+            Assert.AreEqual(expectedProfileText, actualProfileText);
         }
     }
 }

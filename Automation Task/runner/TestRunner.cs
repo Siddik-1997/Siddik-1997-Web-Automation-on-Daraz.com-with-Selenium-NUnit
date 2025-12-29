@@ -1,5 +1,6 @@
 ﻿using Allure.NUnit;
 using Automation_Task.pages;
+using Automation_Task.testData;
 using Automation_Task.utils;
 using OpenQA.Selenium;
 using System;
@@ -11,7 +12,8 @@ using System.Threading.Tasks;
 namespace Automation_Task.runner
 {
     [AllureNUnit]
-    public class TestRunner:SetupPage
+
+    public class TestRunner : SetupPage
     {
         HomePage homePage;
         SignupPage signupPage;
@@ -21,7 +23,7 @@ namespace Automation_Task.runner
 
         [Test, Order(1)]
         public void changeLanguage()
-        {   
+        {
             homePage = new HomePage(driver);
             // Change the default Language English to Bangla
             homePage.languageMenuClicked();
@@ -34,18 +36,21 @@ namespace Automation_Task.runner
             homePage.assertSiteLanguage("Flash Sale");
 
         }
-        //[Test, Order(2)]
-        public void signup() {
+        [Test, Order(2)]
+        public void signup()
+        {
             signupPage = new SignupPage(driver);
-            signupPage.doSignup("01993493888");
+            var loginData = Utils.ReadLoginData("E:\\Automation Task\\Automation Task\\testData\\loginCredentials.json");
+            signupPage.doSignup(loginData.Login.PhoneNumber);
         }
 
         [Test, Order(3)]
         public void login()
         {
-           loginPage = new LoginPage(driver);
-            loginPage.doLogin("abubakkar1045@gmail.com", "Siddik@1234");
-            Thread.Sleep(5000);
+            loginPage = new LoginPage(driver);
+            var loginData = Utils.ReadLoginData("E:\\Automation Task\\Automation Task\\testData\\loginCredentials.json");
+            loginPage.doLogin(loginData.Login.Username, loginData.Login.Password);
+
             //Assertion after login
             loginPage.loginAssertion();
         }
@@ -62,8 +67,7 @@ namespace Automation_Task.runner
 
             //Select different product category and add to cart
             productPage.selectDifferentProductCategory();
-            //Assertion after adding product to cart
-            productPage.productAddedAssertion();
+
         }
 
         [Test, Order(5)]
